@@ -1,0 +1,32 @@
+.{
+    .name = .pretend_distortion,
+    .version = "0.0.0",
+    .fingerprint = 0x6e0aa01d6e3282fc,
+    .minimum_zig_version = "0.15.2",
+
+    .dependencies = .{
+        .lightmix = .{
+            .url = "https://github.com/haruki7049/lightmix/archive/refs/tags/0.16.1.tar.gz",
+            .hash = "lightmix-0.16.1-SpCovNZSAgB6SIkcskMHbN58ISBkbV5x4-D6kVT2Fr9_",
+        },
+        .lightmix_filters = .{
+            .url = "https://github.com/haruki7049/lightmix_filters/archive/refs/tags/0.2.1.tar.gz",
+            .hash = "lightmix_filters-0.2.1-QAX9gW0PIgDNEA_-PewDIRhzE8rBNHml7MFLXKCtRDG3",
+        },
+        .lightmix_synths = .{
+            .url = "https://github.com/haruki7049/lightmix_synths/archive/refs/tags/0.2.1.tar.gz",
+            .hash = "lightmix_synths-0.2.1-6UeSjLneigCnYK-I-eiwtyA03mauljPMbDNVSYUfAlem",
+        },
+        .lightmix_temperaments = .{
+            .url = "https://github.com/haruki7049/lightmix_temperaments/archive/refs/tags/0.1.0.tar.gz",
+            .hash = "lightmix_temperaments-0.1.0-Wz2gpkESAABVErWSskD2CFYtt5FDhNSCVr1QV68Zxlrf",
+        },
+    },
+
+    .paths = .{
+        "build.zig",
+        "build.zig.zon",
+        "src",
+        "README.md",
+    },
+}
