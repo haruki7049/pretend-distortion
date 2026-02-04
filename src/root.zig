@@ -9,11 +9,11 @@ const Composer = lightmix.Composer;
 const WaveInfo = Composer.WaveInfo;
 const Scale = lightmix_temperaments.TwelveEqualTemperament;
 
-pub fn gen() !Wave(f128) {
+pub fn gen() !Wave(f64) {
     const allocator = std.heap.page_allocator;
 
-    var sine: Wave(f128) = try lightmix_synths.Basic.Sine.gen(f128, .{
-        .frequency = Scale.gen(.{ .code = .c, .octave = 4 }),
+    var sine: Wave(f64) = try lightmix_synths.Basic.KarplusStrong.gen(f64, .{
+        .frequency = Scale.gen(.{ .code = .c, .octave = 3 }),
         .amplitude = 1.0,
         .length = 88200,
         .allocator = allocator,
