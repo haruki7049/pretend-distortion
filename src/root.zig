@@ -32,7 +32,13 @@ fn hard_clipping(comptime T: type, original: Wave(T)) !Wave(T) {
     var result: std.array_list.Aligned(T, null) = .empty;
 
     for (original.samples) |sample| {
-        try result.append(allocator, sample);
+        const new_sample = sample * 8.0;
+
+        if (@abs(new_sample) <= 1.0) {
+            try result.append(allocator, new_sample);
+        } else {
+            try result.append(allocator, 1.0);
+        }
     }
 
     return Wave(T){
