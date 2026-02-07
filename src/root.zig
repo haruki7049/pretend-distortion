@@ -12,7 +12,7 @@ const Scale = lightmix_temperaments.TwelveEqualTemperament;
 pub fn gen() !Wave(f64) {
     const allocator = std.heap.page_allocator;
 
-    var wave: Wave(f64) = try lightmix_synths.Basic.KarplusStrong.gen(f64, .{
+    var wave: Wave(f64) = try lightmix_synths.Basic.Sine.gen(f64, .{
         .frequency = Scale.gen(.{ .code = .c, .octave = 3 }),
         .amplitude = 1.0,
         .length = 88200,
@@ -21,7 +21,7 @@ pub fn gen() !Wave(f64) {
         .sample_rate = 44100,
         .channels = 1,
     });
-    try wave.filter(hard_clipping);
+    //try wave.filter(hard_clipping);
     try wave.filter(normalize);
 
     return wave;
@@ -32,7 +32,7 @@ fn hard_clipping(comptime T: type, original: Wave(T)) !Wave(T) {
     var result: std.array_list.Aligned(T, null) = .empty;
 
     for (original.samples) |sample| {
-        const new_sample = sample * 8.0;
+        const new_sample = sample * 2.0;
 
         if (@abs(new_sample) <= 1.0) {
             try result.append(allocator, new_sample);
